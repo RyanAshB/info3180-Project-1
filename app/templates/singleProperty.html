@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block main %} 
+    
+	<div class = "card">        	
+        
+        <img src="/static/uploads/{{  prop.file  }}"> 
+        <div class = "inside">
+	        <h4>{{prop.propTitle}}</h4> 
+	        <p class="price">${{prop.price}}</p>
+	        <p class="type">{{prop.propType}}</p>
+	        <p>{{prop.description}}</p>
+
+	        <div class = "content">
+	        	<img src="/static/uploads/bed.png">
+	        	<p>{{prop.roomNum}} Bedrooms</p>
+	        	<img src="/static/uploads/bath.png">
+	        	<p>{{prop.bathroomNum}} Bathrooms</p>
+	       	</div>
+	       	
+	        <div class = "content">
+	        	<img src="/static/uploads/pin.png">
+	        	<p>{{prop.location}}</p>
+	       	</div>
+	       	
+        </div>
+        <a href="{{url_for('singleProperty',propertyid=prop.id)}}"></a><button class="block" onclick = >Contact Realty</button>
+    </div>    
+    
+    {# Example usage of route for files not in static folder #}
+    
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>All Properties</h2>
+
+    
+    <div class="grid-container">
+    {% for prop in properties %}
+    	<div class = "card"> 	
+	        
+	        <img src="/static/uploads/{{  prop.file  }}"> 
+	        <div class = "inside">
+		        <h4>{{prop.propTitle}}</h4> 
+		        <div class = "content">
+		        	<img src="/static/uploads/pin.png">
+		        	<p>{{prop.location}}</p>
+		       	</div>
+		        <p class="price1">${{prop.price}}</p>
+	    	</div>
+	        <a href="{{url_for('singleProperty',propertyid=prop.id)}}"><button class="block">View Property</button></a>
+        </div>
+    {% endfor %}
+    </div>
+    {# Example usage of route for files not in static folder #}
+    
+{% endblock %}
